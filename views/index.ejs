@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <input id="mes"><button onclick="send()">send</button>
+    </p>
+    <script>
+        const messages = "<%= chat %>";
+        const mesArray = messages.split(",");
+        for (let i = 0; i < mesArray.length; i++) {
+            var obj = document.createElement("p");
+            obj.innerHTML = mesArray[i];
+            document.body.appendChild(obj);
+        }
+    </script>
+    <script>
+        function send() {
+            let mes = document.getElementById('mes');
+            location.href = '/mes?m=' + mes.value;
+        }
+    </script>
+</body>
+
+</html>
